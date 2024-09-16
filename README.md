@@ -5,3 +5,11 @@
 - 5V Relay
 - Jumper Wires
 - 22AWG Electrical Wire
+- Wire Clippers
+- Electrical Tape
+- ChatGPT
+
+# Language and libraries used:
+- Python
+- Flask
+- GPIO
