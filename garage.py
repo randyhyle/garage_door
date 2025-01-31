@@ -15,16 +15,18 @@ def activate_garage_door():
 
 @app.route('/')
 def index():
-    return '''<h1>Garage Door</h1>
+    garage_door_button = '''<h1>Garage Door</h1>
     <form action="/open" method="POST">
         <button type="submit">Activate Garage Door</button>
     </form>
     '''
+    return garage_door_button
 
 @app.route('/open', methods=['POST'])
 def open_garage():
     activate_garage_door()
-    return '<h1>Garage Door Activated</h1><a href="/">Back</a>'
+    message = '<h1>Garage Door Activated</h1><a href="/">Back</a>'
+    return message
 
 if __name__ == '__main__':
     try:
