@@ -4,14 +4,16 @@ import time
 
 app = Flask(__name__)
 
-GPIO.setmode(GPIO.BCM)
-relay_pin = 17
-GPIO.setup(relay_pin, GPIO.OUT)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+RELAY_PIN = 7
+GPIO.setup(RELAY_PIN, GPIO.OUT)
+GPIO.output(RELAY_PIN, True)
 
 def activate_garage_door():
-    GPIO.output(relay_pin, GPIO.HIGH)
-    time.sleep(0.5)
-    GPIO.output(relay_pin, GPIO.LOW)
+    GPIO.output(RELAY_PIN, False)
+    time.sleep(0.8)
+    GPIO.output(RELAY_PIN, True)
 
 @app.route('/')
 def index():
