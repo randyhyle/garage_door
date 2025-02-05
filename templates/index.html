@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garage</title>
+    <link rel="stylesheet" href="{{ url_for('templates', filename='style.css') }}">
 </head>
 <body>
     <h2>Garage Door</h2>
-    <form action="/open" method="POST">
-        <button type="submit">Activate Garage Door</button>
+    <form method="POST">
+        <div class="grid">
+            {% for row in range(4) %}
+                {% for col in range(4) %}
+                    <label>
+                        <input type="checkbox" name="{{ row }}_{{ col }}">
+                    </label>
+                {% endfor %}
+                <br />
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn">Activate Garage Door</button>
     </form>
 </body>
 </html>

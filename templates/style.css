@@ -1,0 +1,28 @@
+.grid { 
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    gap: 10px; 
+}
+
+.grid input {
+    width: 20px;
+    height: 20px; 
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
