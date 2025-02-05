@@ -18,15 +18,19 @@ def activate_garage_door():
     time.sleep(0.8)
     # GPIO.output(RELAY_PIN, True)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def index():
-    # garage_door_button = '''<h1>Garage Door</h1>
-    # <form action="/open" method="POST">
-    #     <button type="submit">Activate Garage Door</button>
-    # </form>
-    # '''
     if request.method == 'POST':
         selected = set()
+
+        for key in request.form.keys():
+            row, col = map(int, key.split('_'))
+            selected.add((row, col))
+        
+        if selected == PATTERN:
+            open_garage()
+        else:
+            return "❌ Incorrect Pattern! Try Again.", 403
 
 
     return render_template('index.html')
