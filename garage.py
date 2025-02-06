@@ -1,22 +1,21 @@
-from flask import Flask, render_template, request, flash
-# import RPi.GPIO as GPIO
+from flask import Flask, render_template, request
+import RPi.GPIO as GPIO
 import time
 
 app = Flask(__name__)
 
-# GPIO.setwarnings(False)
-# GPIO.setmode(GPIO.BOARD)
-# RELAY_PIN = 7
-# GPIO.setup(RELAY_PIN, GPIO.OUT)
-# GPIO.output(RELAY_PIN, True)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+RELAY_PIN = 7
+GPIO.setup(RELAY_PIN, GPIO.OUT)
+GPIO.output(RELAY_PIN, True)
 
 PATTERN = {(0, 1), (0, 3), (1, 0), (3, 0), (3, 1)}
 
 def activate_garage_door():
-    # GPIO.output(RELAY_PIN, False)
-    print("opening")
+    GPIO.output(RELAY_PIN, False)
     time.sleep(0.8)
-    # GPIO.output(RELAY_PIN, True)
+    GPIO.output(RELAY_PIN, True)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
