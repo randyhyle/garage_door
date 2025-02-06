@@ -42,3 +42,7 @@ form {
     -ms-user-select: none;
     user-select: none;
 }
+
+.status {
+    text-align: center;
+}
