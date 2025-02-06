@@ -12,10 +12,13 @@ GPIO.output(RELAY_PIN, True)
 
 PATTERN = {(0, 1), (0, 3), (1, 0), (3, 0), (3, 1)}
 
+status = "Closed"
+
 def activate_garage_door():
     GPIO.output(RELAY_PIN, False)
     time.sleep(0.8)
     GPIO.output(RELAY_PIN, True)
+    status = "open" if status == "closed" else "closed"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -23,13 +26,19 @@ def index():
         selected = set()
 
         for key in request.form.keys():
-            row, col = map(int, key.split('_'))
-            selected.add((row, col))
+            try:
+                row, col = map(int, key.split('_'))
+                selected.add((row, col))
+            except ValueError:
+                pass
 
         if selected == PATTERN:
             activate_garage_door()
-            
-    return render_template('index.html')
+        else:
+            return render_template('index.html', status = status, 
+                                   error="Incorrect. Try again")
+        
+    return render_template('index.html', status = status, error=None)
 
 if __name__ == '__main__':
     try:

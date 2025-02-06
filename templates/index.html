@@ -21,5 +21,8 @@
         </div>
         <button type="submit" class="btn">Activate Garage Door</button>
     </form>
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
 </body>
 </html>
