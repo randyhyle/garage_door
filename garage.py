@@ -10,7 +10,7 @@ RELAY_PIN = 7
 GPIO.setup(RELAY_PIN, GPIO.OUT)
 GPIO.output(RELAY_PIN, True)
 
-PATTERN = {(0, 1), (0, 3), (1, 0), (3, 0), (3, 1)}
+PATTERN = {}
 
 status = "Closed"
 
