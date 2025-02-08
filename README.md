@@ -1,5 +1,5 @@
 # 🚪 Garage Door Opener  
-A Raspberry Pi-powered garage door opener built with **Python, Flask, and GPIO**.
+A Raspberry Pi-powered garage door opener built with **Python, Flask, HTML, CSS and GPIO**.
 
 ## 🔥 Features  
 - ✅ Secure authentication using a **4x4 checkbox grid**  
