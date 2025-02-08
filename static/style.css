@@ -45,4 +45,10 @@ form {
 
 .status {
     text-align: center;
+    padding-bottom: 10px;
+}
+
+.error {
+    text-align: center;
+    padding-top: 10px;
 }

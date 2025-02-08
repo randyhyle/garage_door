@@ -18,7 +18,7 @@ def activate_garage_door():
     GPIO.output(RELAY_PIN, False)
     time.sleep(0.8)
     GPIO.output(RELAY_PIN, True)
-    status = "open" if status == "closed" else "closed"
+    status = "Open" if status == "Closed" else "Closed"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
