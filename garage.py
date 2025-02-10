@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 import RPi.GPIO as GPIO
 import time
+import logging
+import os
 
 app = Flask(__name__)
 
@@ -13,6 +15,19 @@ GPIO.output(RELAY_PIN, True)
 PATTERN = {}
 
 status = "Closed"
+
+# Ensure log directory exists
+log_dir = "/home/{name here}/garage/logs"
+os.makedirs(log_dir, exist_ok=True)
+
+# Set up logging
+logging.basicConfig(
+    filename=os.path.join(log_dir, "garage.log"),
+    level=logging.DEBUG,  # Log all levels (DEBUG, INFO, WARNING, ERROR)
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logging.info("🚀 Logging initialized successfully!")
 
 def activate_garage_door():
     GPIO.output(RELAY_PIN, False)
